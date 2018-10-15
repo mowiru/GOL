@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Keks</title>
+  <link rel="stylesheet" type="text/css" href="./fun.css">
+</head>
+
+<body>
+
+  <h1 id="GOL">GOL</h1>
+  <!-- Headrow for Options to inflict GOF-->
+  <center>
+    <div id="ActionButton">
+
+      <div class="dropdown">
+        <button onclick="myFun()" class="dropbtn">Start</button>
+        <div id="myDrop" class="dropdown-content">
+          <a href="#" id="1ms">1ms</a>
+          <a href="#" id="50ms">50ms</a>
+          <a href="#" id="200ms">200ms</a>
+          <a href="#" id="500ms">500ms</a>
+          <a href="#" id="1000ms">1000ms</a>
+        </div>
+      </div>
+
+      <button id="stop" class="Stop">Stop</button>
+
+      <button id="refresh" class="refresh">Refresh</button>
+
+      <button id="Clear" class="Clear">Clear</button>
+
+      <div class="dropdown">
+        <button onclick="myFunction()" class="dropbtn">Choose</button>
+        <div id="myDropdown" class="dropdown-content">
+          <a href="#" id="Gleider">Gleider</a>
+          <a href="#" id="Gun">Gun</a>
+        </div>
+      </div>
+
+
+      <!--<button id="mky" class="mky">Make your own</button>-->
+
+      <button id="exit" onclick="exit">Exit</button>
+    </div>
+  </center>
+
+  <br>
+
+  <div id="CanvasSpace">
+    <!-- Headline for canvas -->
+    <h1 id="secondHeadline">This thing!</h1>
+    <!-- Should include running GOF -->
+    <center>
+      <canvas id="myCan" width="400px" height="400px"> </canvas>
+    </center>
+  </div>
+
+  <br>
+
+  <center>
+    <div>
+      <h1 id="calls" class="count"></h1>
+    </div>
+    <div>
+      <h1 id="alive" class="alive"></h1>
+    </div>
+    <div>
+      <h1 id="dead" class="dead"></h1>
+    </div>
+    <div>
+      <h1 id="done" class="done"></h1>
+    </div>
+  </center>
+
+  <script>
+    require('./app.js');
+
+    function myFun() {
+      document.getElementById("myDrop").classList.toggle("show");
+    }
+
+    // Close the dropdown if the user clicks outside of it
+    window.onclick = function(event) {
+      if (!event.target.matches('.drop')) {
+
+        var dropdowns = document.getElementsByClassName("dropdown-con");
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+          var openDropdown = dropdowns[i];
+          if (openDropdown.classList.contains('show')) {
+            openDropdown.classList.remove('show');
+          }
+        }
+      }
+    };
+
+    function myFunction() {
+      document.getElementById("myDropdown").classList.toggle("show");
+    }
+
+    // Close the dropdown if the user clicks outside of it
+    window.onclick = function(event) {
+      if (!event.target.matches('.dropbtn')) {
+
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+          var openDropdown = dropdowns[i];
+          if (openDropdown.classList.contains('show')) {
+            openDropdown.classList.remove('show');
+          }
+        }
+      }
+    };
+  </script>
+</body>
+
+</html>
